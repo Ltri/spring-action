@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--依赖注入（Dependency Injection）有三种方法实现-->
+    <!--1.通过构造方式实现-->
+     <!--需要吧所有属性的数据都注入，否则注入失败-->
+    <bean id="user" class="com.com.ltri.entity.User">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="money" value="2000"></constructor-arg>
+        <!--LocalData为特殊类型需要自身定义，通过ref来调用-->
+        <constructor-arg name="birth" ref="data"></constructor-arg>
+    </bean>
+    <!--特殊类型需要自定义bean-->
+    <bean id="data" class="java.time.LocalDate">
+        <constructor-arg name="year" value="1997"></constructor-arg>
+        <constructor-arg name="month" value="1"></constructor-arg>
+        <constructor-arg name="dayOfMonth" value="1"></constructor-arg>
+    </bean>
+
+    <!--2.通过set方法注入（常用）-->
+    <!--可注入部分属性-->
+    <bean id="user2" class="com.com.ltri.entity.User">
+        <property name="id" value="3"></property>
+        <property name="name" value="李四"></property>
+        <property name="money" value="2000"></property>
+        <!--模拟注入部分属性-->
+        <!--<property name="birth" ref="data"></property>-->
+    </bean>
+
+    <!--3.通过注解方式，-->
+</beans>

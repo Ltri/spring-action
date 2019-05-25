@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--1。使用默认构造函数创建Bean-->
+    <!--scope属性默认singleton单例模式、
+        设置prototype为多例
+        request为web应用范围
+        session为会话范围
+        global-session为全局会话范围，通常集群模式使用-->
+    <!--spring可以用过init-method配置初始化方法，destroy-method配置销毁方法-->
+    <bean id="userService" class="com.com.ltri.service.impl.UserServiceImpl" scope="prototype"
+          init-method="init" destroy-method="destroy"/>
+    <!--2。模拟使用工厂模式创建-->
+        <!--2。1配置工厂bean-->
+    <bean id="userFactory" class="com.com.ltri.factory.UserFactory"/>
+        <!--2。2通过工厂bean配置获取方法-->
+    <bean id="userService2" factory-bean="userFactory" factory-method="getUserService"/>
+    <!--3.模拟通过静态工厂获取bean-->
+    <bean id="userService3" class="com.com.ltri.factory.StaticFactory" factory-method="getUserService"/>
+
+</beans>
