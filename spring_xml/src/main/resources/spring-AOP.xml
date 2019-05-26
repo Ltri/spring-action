@@ -7,12 +7,12 @@
         http://www.springframework.org/schema/aop
         https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--配置ioc-->
-    <bean id="userServiceAOP" class="com.com.ltri.service.impl.UserServiceImpl"/>
+    <bean id="userServiceAOP" class="com.ltri.service.impl.UserServiceImpl"/>
 
-    <bean id="logger" class="com.com.ltri.service.impl.LoggerImpl"/>
+    <bean id="logger" class="com.ltri.service.impl.LoggerImpl"/>
 
     <aop:config>
-        <aop:pointcut id="loggerPointCut" expression="execution(* com.com.ltri.service.impl.*.*(..))"/>
+        <aop:pointcut id="loggerPointCut" expression="execution(* com.ltri.service.impl.*.*(..))"/>
         <aop:aspect id="logAOP" ref="logger">
             <aop:before method="before" pointcut-ref="loggerPointCut"/>
             <aop:after-returning method="afterReturning" pointcut-ref="loggerPointCut"/>

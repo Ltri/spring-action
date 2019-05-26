@@ -7,7 +7,7 @@
     <!--依赖注入（Dependency Injection）有三种方法实现-->
     <!--1.通过构造方式实现-->
      <!--需要吧所有属性的数据都注入，否则注入失败-->
-    <bean id="user" class="com.com.ltri.entity.User">
+    <bean id="user" class="com.ltri.entity.User">
         <constructor-arg name="id" value="2"></constructor-arg>
         <constructor-arg name="name" value="张三"></constructor-arg>
         <constructor-arg name="money" value="2000"></constructor-arg>
@@ -23,7 +23,7 @@
 
     <!--2.通过set方法注入（常用）-->
     <!--可注入部分属性-->
-    <bean id="user2" class="com.com.ltri.entity.User">
+    <bean id="user2" class="com.ltri.entity.User">
         <property name="id" value="3"></property>
         <property name="name" value="李四"></property>
         <property name="money" value="2000"></property>

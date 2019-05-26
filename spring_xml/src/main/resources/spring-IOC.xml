@@ -11,14 +11,14 @@
         session为会话范围
         global-session为全局会话范围，通常集群模式使用-->
     <!--spring可以用过init-method配置初始化方法，destroy-method配置销毁方法-->
-    <bean id="userService" class="com.com.ltri.service.impl.UserServiceImpl" scope="prototype"
+    <bean id="userService" class="com.ltri.service.impl.UserServiceImpl" scope="prototype"
           init-method="init" destroy-method="destroy"/>
     <!--2。模拟使用工厂模式创建-->
         <!--2。1配置工厂bean-->
-    <bean id="userFactory" class="com.com.ltri.factory.UserFactory"/>
+    <bean id="userFactory" class="com.ltri.factory.UserFactory"/>
         <!--2。2通过工厂bean配置获取方法-->
     <bean id="userService2" factory-bean="userFactory" factory-method="getUserService"/>
     <!--3.模拟通过静态工厂获取bean-->
-    <bean id="userService3" class="com.com.ltri.factory.StaticFactory" factory-method="getUserService"/>
+    <bean id="userService3" class="com.ltri.factory.StaticFactory" factory-method="getUserService"/>
 
 </beans>

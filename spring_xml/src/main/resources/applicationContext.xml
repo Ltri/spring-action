@@ -27,12 +27,12 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <bean id="userServiceAOP" class="com.com.ltri.service.impl.UserServiceImpl"/>
+    <bean id="userServiceAOP" class="com.ltri.service.impl.UserServiceImpl"/>
 
-    <bean id="logger" class="com.com.ltri.service.impl.LoggerImpl"/>
+    <bean id="logger" class="com.ltri.service.impl.LoggerImpl"/>
 
     <aop:config>
-        <aop:pointcut id="loggerPointCut" expression="execution(* com.com.ltri.service.impl.*.*(..))"/>
+        <aop:pointcut id="loggerPointCut" expression="execution(* com.ltri.service.impl.*.*(..))"/>
         <aop:aspect id="logAOP" ref="logger">
             <aop:before method="before" pointcut-ref="loggerPointCut"/>
             <aop:after-returning method="afterReturning" pointcut-ref="loggerPointCut"/>
@@ -43,5 +43,5 @@
     </aop:config>
 
     <!--开启自动配置-->
-    <context:component-scan base-package="com.com.ltri"/>
+    <context:component-scan base-package="com.ltri"/>
 </beans>
